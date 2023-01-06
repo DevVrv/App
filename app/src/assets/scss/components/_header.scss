@@ -1,0 +1,82 @@
+.header {
+    width: 100%;
+    height: 60px;   
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $fade;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+    }    
+
+    &__logo {
+        width: fit-content;
+        height: 100%;
+        & img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    &__nav {
+        height: 100%;
+        flex: 1 1 auto;
+    }
+    &__nav-list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__nav-item {
+        padding: 0.75rem 1rem;
+    }
+    &__nav-link {
+        color: $lite;
+        font-size: 15px;
+        transition: color 0.4s ease;
+        position: relative;
+        padding: 0.2rem;
+        & i {
+            color: $lite;
+            margin-right: 0.5rem;
+            color: $primary
+        };
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 0%;
+            height: 1px;
+            background-color: $lite;
+            opacity: 0;
+            transition: width 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+        }
+        &:hover {
+            color: $primary;
+            &::before {
+                width: 100%;
+                opacity: 1;
+                background-color: $primary;
+            }
+        }
+    }
+
+    &__auth {
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__auth-btn {
+        transition: color 0.4s ease;
+        margin: 0 0.25rem;
+        &:hover {
+            color: $primary;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    background-color: $none;
+    border: 0;
+    border-color: $none;
+    color: $lite;
+    outline: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(0.98);
+    }
+}
+.btn-primary {
+    background-color: $primary;
+    color: $lite;
+    
+}
+.btn-secondary {
+    background-color: $dark;
+    color: $lite;
+}

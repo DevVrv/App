@@ -1,0 +1,15 @@
+$lite: rgb(220, 220, 220);
+$dark: rgb(20, 22, 22);
+$primary: rgb(28, 167, 162);
+$primary-op: rgb(28, 167, 162, 0.3);
+
+$none: rgb(0, 0, 0, 0);
+$fade: rgba(0, 0, 0, 0.1);
+
+
+.bg-lite {
+    background-color: $lite !important;
+}
+.bg-dark {
+    background-color: $dark !important;
+}
