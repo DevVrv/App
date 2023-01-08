@@ -1,3 +1,4 @@
+// basic input field
 function Field({id, name, desc, placeholder, type='text', disabled=false}) {
     if (desc) {
         desc = <span className="color-fade"> {desc} </span>
@@ -12,6 +13,7 @@ function Field({id, name, desc, placeholder, type='text', disabled=false}) {
     );
 }
 
+// basic area field
 function Area({id, name, desc, placeholder}) {
     return (
         <div className="field-container">
@@ -23,6 +25,25 @@ function Area({id, name, desc, placeholder}) {
     );
 }
 
+// basic search field
+function Search({id, name, desc, placeholder="Search", type='text', disabled=false}) {
+    if (desc) {
+        desc = <span className="color-fade"> {desc} </span>
+    }
+    return (
+        <div className="search-container">
+            {desc}
+            <div className="search-wrapper">
+                <input type="search" id={id} name={name} className="field search-field" placeholder={placeholder} disabled={disabled} autoComplete="true"/>
+                <button type="submit" className="btn btn-search">
+                    <i class="icofont-search"></i>
+                </button>
+            </div>
+        </div>
+    );
+}
+
+// basic checkbox
 function Checkbox({id, name, desc, disabled=false}) {
     let icon;
     if (disabled) {
@@ -40,6 +61,7 @@ function Checkbox({id, name, desc, disabled=false}) {
     );
 }
 
+// basic readio
 function Radio({id, name, desc, value, disabled=false}) {
     let icon;
     if (disabled) {
@@ -57,4 +79,4 @@ function Radio({id, name, desc, value, disabled=false}) {
     );
 }
 
-export {Field, Checkbox, Radio, Area}
+export {Field, Area, Search, Checkbox, Radio}

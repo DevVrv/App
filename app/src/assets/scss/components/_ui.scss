@@ -59,8 +59,38 @@
         } 
     }
 }
+.btn-exit {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $none;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 1px;
+        background-color: $dark;
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+    &:hover {
+        transform: scale(0.95);
+    }
+}
+.btn-search {
+    background-color: $secondary;
+}
 
-// link
+// links
 .link {
     color: $fade-ligth;
     transition: color 0.4s ease;
@@ -69,7 +99,7 @@
     }
 }
 
-// inputs
+// Form Fields
 .field-container {
     width: 100%;
     height: fit-content;
@@ -107,7 +137,39 @@
         }
     }
 }
-// label 
+.search-container {
+    width: 100%;
+    height: fit-content;
+    & .search-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .btn-search {
+            border-radius: 0 0.25rem 0.25rem 0;
+            border: 1px solid $fade;
+        }
+    }
+    & .search-field {
+        padding: 0.5rem;
+        flex: 1 1 auto;
+        background-color: $lite;
+        border: 1px solid $fade;
+        border-radius: 0.25rem 0 0 0.25rem;
+        transition: border-color 0.3s ease;
+        &::placeholder {
+            transition: opacity 0.4s ease;
+        }
+        &:hover, &:focus {
+            border-color: $primary;
+        }
+        &:focus {
+            &::placeholder {
+                opacity: 0.3;
+            }
+        }
+    }
+}
 .checkbox {
     display: flex;
     align-items: center;
@@ -155,7 +217,6 @@
         }
     }
 }
-// radio
 .radio {
     display: flex;
     align-items: center;

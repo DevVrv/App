@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Field, Checkbox } from './form-control';
+import { Field, Checkbox } from './FormControl';
 
 // get form data
 function getFormData(form) {

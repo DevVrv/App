@@ -1,0 +1,70 @@
+.acordion {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $none !important;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    &__header {
+        width: 100%;
+        height: auto;
+    }
+    &__toggler {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.4s ease, color 0.4s ease;
+        @include adaptive-value('font-size', 15, 13, 0);
+        cursor: pointer;
+        &:hover {
+            background-color: $primary;
+            color: $lite;
+        }
+        & i { 
+            display: block; 
+            transition: transform 0.3s ease;
+        }
+        &[data-expanded="false"] {
+            background-color: $lite;
+            color: $dark;
+            & i {
+                transform: scaleY(1); 
+            }
+        } 
+        &[data-expanded="true"] {
+            background-color: $primary;
+            color: $lite;
+            & i {
+                transform: scaleY(-1); 
+            }
+        } 
+    }
+    &__body {
+        height: auto;
+        min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start; 
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+        background-color: $lite;
+    }
+    &[data-expanded="false"] {
+        & .acordion__body {
+            max-height: 0;
+            padding: 0 1rem;
+            opacity: 0;
+        }
+    }
+    &[data-expanded="true"] {
+        & .acordion__body {
+            max-height: 250px;
+            padding: 1rem;
+            opacity: 1;
+        }
+    }
+}
