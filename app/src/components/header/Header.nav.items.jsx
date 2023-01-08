@@ -1,23 +1,24 @@
 const nav = [
     {
-        'title': 'Главная',
-        'url': '/',
-        'icon': <i className="icofont-ui-home"></i>
-    },
-    {
-        'title': 'Заметки',
+        'title': 'About me',
         'url': '/',
         'icon': <i className="icofont-brand-opensuse"></i>
     },
     {
-        'title': 'Задачи',
+        'title': 'Blog',
         'url': '/',
         'icon': <i className="icofont-tasks-alt"></i>
     },
     {
-        'title': 'База знаний',
+        'title': 'Contacts',
         'url': '/',
         'icon': <i className="icofont-book-alt"></i>
     },
+    {
+        'title': 'Write to me',
+        'url': '/',
+        'icon': <i className="icofont-book-alt"></i>
+    },
+
 ];
 export default nav;

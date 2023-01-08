@@ -100,12 +100,36 @@ h1, h2, h3, h4, h5, h6, p {
             transform: rotate(360deg);
   }
 }
+@-webkit-keyframes input-border {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes input-border {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .bg-lite {
   background-color: rgb(220, 220, 220) !important;
 }
 
 .bg-dark {
   background-color: rgb(20, 22, 22) !important;
+}
+
+.color-fade {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.color-dark {
+  color: rgb(20, 22, 22) !important;
 }
 
 .btn {
@@ -129,21 +153,274 @@ h1, h2, h3, h4, h5, h6, p {
   -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  opacity: 0.9;
 }
 .btn:hover {
-  -webkit-transform: scale(0.98);
-      -ms-transform: scale(0.98);
-          transform: scale(0.98);
+  opacity: 1;
 }
 
 .btn-primary {
-  background-color: rgb(28, 167, 162);
+  background-color: rgb(28, 167, 162) !important;
   color: rgb(220, 220, 220);
 }
 
 .btn-secondary {
-  background-color: rgb(20, 22, 22);
+  background-color: rgb(37, 49, 49) !important;
   color: rgb(220, 220, 220);
+}
+
+.btn-burger {
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+.btn-burger span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(220, 220, 220);
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: opacity 0.3s ease, top 0.3s ease, -webkit-transform 0.4s ease;
+  transition: opacity 0.3s ease, top 0.3s ease, -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease, opacity 0.3s ease, top 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease, top 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease, top 0.3s ease, -webkit-transform 0.4s ease;
+}
+.btn-burger span:nth-child(1) {
+  top: 25%;
+}
+.btn-burger span:nth-child(2) {
+  top: 75%;
+}
+.btn-burger[data-expanded=true] span:nth-child(1) {
+  top: 50%;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.btn-burger[data-expanded=true] span:nth-child(2) {
+  top: 50%;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.link {
+  color: rgba(0, 0, 0, 0.3);
+  -webkit-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+.link:hover {
+  color: rgb(28, 167, 162);
+}
+
+.field-container {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0.5rem 0;
+}
+.field-container span {
+  display: block;
+  margin: 0.5rem 0;
+  font-family: monospace;
+}
+.field-container span i {
+  color: rgba(0, 0, 0, 0.1);
+}
+.field-container .field-wrapper {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.field-container .field-wrapper .field {
+  width: 100%;
+  height: 30px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgb(220, 220, 220);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: border-color 0.4s ease;
+  -o-transition: border-color 0.4s ease;
+  transition: border-color 0.4s ease;
+}
+.field-container .field-wrapper .field::-webkit-input-placeholder {
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.field-container .field-wrapper .field::-moz-placeholder {
+  -moz-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.field-container .field-wrapper .field:-ms-input-placeholder {
+  -ms-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.field-container .field-wrapper .field::-ms-input-placeholder {
+  -ms-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.field-container .field-wrapper .field::placeholder {
+  -webkit-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.field-container .field-wrapper .field:hover, .field-container .field-wrapper .field:focus {
+  border-color: rgb(28, 167, 162);
+}
+.field-container .field-wrapper .field:focus::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+.field-container .field-wrapper .field:focus::-moz-placeholder {
+  opacity: 0.3;
+}
+.field-container .field-wrapper .field:focus:-ms-input-placeholder {
+  opacity: 0.3;
+}
+.field-container .field-wrapper .field:focus::-ms-input-placeholder {
+  opacity: 0.3;
+}
+.field-container .field-wrapper .field:focus::placeholder {
+  opacity: 0.3;
+}
+
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.checkbox label {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  font-size: 14px;
+  -webkit-transition: border-color 0.4s ease, background-color 0.4s 0.3s ease, color 0.4s ease, opacity 0.4s ease;
+  -o-transition: border-color 0.4s ease, background-color 0.4s 0.3s ease, color 0.4s ease, opacity 0.4s ease;
+  transition: border-color 0.4s ease, background-color 0.4s 0.3s ease, color 0.4s ease, opacity 0.4s ease;
+  opacity: 0.9;
+}
+.checkbox label i {
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.checkbox label:hover {
+  border-color: rgb(28, 167, 162);
+  opacity: 1;
+}
+.checkbox input:checked + label {
+  -webkit-transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s 0.3s ease, opacity 0.4s ease;
+  -o-transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s 0.3s ease, opacity 0.4s ease;
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s 0.3s ease, opacity 0.4s ease;
+  background-color: rgb(28, 167, 162);
+  color: rgb(37, 49, 49);
+}
+.checkbox input:checked + label i {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.4s 0.3s ease;
+  transition: -webkit-transform 0.4s 0.3s ease;
+  -o-transition: transform 0.4s 0.3s ease;
+  transition: transform 0.4s 0.3s ease;
+  transition: transform 0.4s 0.3s ease, -webkit-transform 0.4s 0.3s ease;
+}
+.checkbox input:disabled + label {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.1);
+}
+.checkbox input:disabled + label i {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+.radio label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: border-color 0.4s ease;
+  -o-transition: border-color 0.4s ease;
+  transition: border-color 0.4s ease;
+}
+.radio label::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.4s ease, -webkit-transform 0.4s ease;
+  transition: background-color 0.4s ease, -webkit-transform 0.4s ease;
+  -o-transition: background-color 0.4s ease, transform 0.4s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.radio input:checked + label {
+  border-color: rgb(28, 167, 162);
+}
+.radio input:checked + label::before {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  background-color: rgb(28, 167, 162);
+}
+.radio input:disabled + label {
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 12px;
 }
 
 .header {
@@ -159,6 +436,9 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 }
 .header__logo {
@@ -173,12 +453,20 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .header__nav {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
 .header__nav-list {
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,6 +541,76 @@ h1, h2, h3, h4, h5, h6, p {
   color: rgb(28, 167, 162);
 }
 
+@media (max-width: 1024px) {
+  .header {
+    position: relative;
+    z-index: 2;
+  }
+  .header__nav {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+    -webkit-transition: padding 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+    -o-transition: padding 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+    transition: padding 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+    z-index: -1;
+  }
+  .header__nav[data-expanded=false] {
+    opacity: 0;
+    padding: 0rem 1rem;
+    pointer-events: none;
+    height: 0px;
+  }
+  .header__nav[data-expanded=true] {
+    padding: 2.5rem 1rem;
+    pointer-events: all;
+    -webkit-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+            transform: translateY(0%);
+    height: 100vh;
+    opacity: 1;
+  }
+  .header__nav-list {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .header__nav-item {
+    padding: 0.5rem;
+  }
+  .header__nav-link {
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 1rem 2rem;
+  }
+  .btn-burger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
 .modal {
   position: fixed;
   left: 0;
@@ -289,6 +647,16 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  position: relative;
+}
+.modal__container::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -10%;
+  z-index: -1;
 }
 .modal__header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

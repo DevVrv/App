@@ -3,10 +3,11 @@
     height: 60px;   
     padding: 0.75rem 0;
     border-bottom: 1px solid $fade;
-
+    
     &__container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         height: 100%;
     }    
 
@@ -21,10 +22,13 @@
 
     &__nav {
         height: 100%;
+        display: flex;
+        justify-content: center;
         flex: 1 1 auto;
+
     }
     &__nav-list {
-        width: 100%;
+        width: fit-content;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -78,5 +82,57 @@
         &:hover {
             color: $primary;
         }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        position: relative;
+        z-index: 2;
+        &__nav {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 100%;
+            background-color: $fade;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+            transition: padding 0.4s ease, height 0.4s ease, opacity 0.3s ease;
+            z-index: -1;
+            &[data-expanded="false"] {
+                opacity: 0;
+                padding: 0rem 1rem;
+                pointer-events: none;
+                height: 0px;
+            }
+            &[data-expanded="true"] {
+                padding: 2.5rem 1rem;
+                pointer-events: all;
+                transform: translateY(0%);
+                height: 100vh;
+                opacity: 1;
+
+            }
+            
+        }
+        &__nav-list {
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        &__nav-item {
+            padding: 0.5rem;
+        }
+        &__nav-link {
+            display: block;
+            width: fit-content;
+            height: fit-content;
+            padding: 1rem 2rem;
+        } 
+    }
+    .btn-burger {
+        display: flex;
     }
 }

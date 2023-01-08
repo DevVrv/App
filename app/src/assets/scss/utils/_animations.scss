@@ -6,3 +6,12 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes input-border {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

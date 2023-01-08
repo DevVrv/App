@@ -13,7 +13,7 @@ export default function Modal({active, setActive, props}) {
                 <div className="modal__body">
                     {props.body}
                 </div>
-                <div className="modal__footer"></div>
+                {props.footer ? <div className="modal__footer">{props.footer}</div> : '' }
             </div>
         </div>
     );
