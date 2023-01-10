@@ -1,14 +1,14 @@
-import React from 'react';
-import { Field, Checkbox } from './FormControl';
+import React from 'react'
+import { Field, Checkbox } from './FormControl'
 
 // get form data
 function getFormData(form) {
-    const object = {};
-    const formData = new FormData(form);
+    const object = {}
+    const formData = new FormData(form)
     formData.forEach(function(value, key){
-        object[key] = value;
-    });
-    const json = JSON.stringify(object);
+        object[key] = value
+    })
+    const json = JSON.stringify(object)
     return json
 }
 
@@ -16,9 +16,9 @@ function getFormData(form) {
 function FormSignIn({id=0, url='/', handler=null}) {
     return (
         <form className="form w-100" id={`form-signin-${id}`} onSubmit={e => { 
-                e.preventDefault();
-                const formData = getFormData(e.target);
-                console.log(formData);
+                e.preventDefault()
+                const formData = getFormData(e.target)
+                console.log(formData)
             }}>
             <Field type='text' placeholder='Enter Username' name='username' desc='Username'/>
             <Field type='password' placeholder='Enter Password' name="password" desc='Password'/>
@@ -29,16 +29,16 @@ function FormSignIn({id=0, url='/', handler=null}) {
                 <button type="submit" className='btn btn-primary px-5 ms-3'>Login</button>
             </div>
         </form>         
-    );
+    )
 }
 
 // default sign up form
 function FormSignUp({id=0, url='/', handler=null}) {
     return (
         <form className="form w-100" id={`form-signin-${id}`} onSubmit={e => { 
-                e.preventDefault();
-                const formData = getFormData(e.target);
-                console.log(formData);
+                e.preventDefault()
+                const formData = getFormData(e.target)
+                console.log(formData)
             }}>
             <Field type='text' placeholder='Enter Username' name='username' desc='Username'/>
             <Field type='password' placeholder='Enter Password' name="password" desc='Password'/>
@@ -48,7 +48,7 @@ function FormSignUp({id=0, url='/', handler=null}) {
                 <button type="submit" className='btn btn-primary px-5 ms-3'>SignUp</button>
             </div>
         </form>         
-    );
+    )
 }
 
-export {FormSignIn, FormSignUp};
+export {FormSignIn, FormSignUp}

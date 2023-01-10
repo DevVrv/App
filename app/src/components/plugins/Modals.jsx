@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 // Modal props : { title, body, footer }
-function Modal({active, setActive, props}) {
+function BasicModal({active, setActive, props}) {
     return (
         <div className="modal" data-modal-state={active ? 'show': 'hide'} onClick={() => setActive(false)}>
             <div className="modal__container" onClick={e => e.stopPropagation()}>
@@ -17,7 +17,7 @@ function Modal({active, setActive, props}) {
                 {props.footer ? <div className="modal__footer">{props.footer}</div> : '' }
             </div>
         </div>
-    );
+    )
 }
 
-export { Modal };
+export { BasicModal }

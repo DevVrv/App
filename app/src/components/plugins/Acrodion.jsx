@@ -1,28 +1,29 @@
-import { useState } from "react";
+import { useState } from "react"
+import { toggler } from "../../tools/handlerTools"
+import React from "react"
+import { TfiAngleDown } from "react-icons/tfi"
 
 // base acrodion
-function BasicAcordion({title="Acordion", body}) {
-    const [ expandedAcordion, setExpandedAcordion ] = useState(false);
+function BasicAcordion(props) {
+    const [ expanded, setExpanded ] = useState(false)
     return (
-        <div className="acordion" data-expanded={expandedAcordion}>
+        <div className="acordion" data-expanded={expanded}>
             <div className="acordion__header">
-                <button type="button" className="acordion__toggler" data-expanded={expandedAcordion} onClick={() => {
-                    if (expandedAcordion) {
-                        setExpandedAcordion(false);
-                    }
-                    else {
-                        setExpandedAcordion(true);
-                    }
-                }}>
-                    <span>{title}</span>
-                    <i className="icofont-caret-down ms-1"></i>
+                <button type="button" className="acordion__toggler" data-expanded={expanded} onClick={() => toggler(expanded, setExpanded)}>
+                    <span>{props.title}</span>
+                    <i> <TfiAngleDown /> </i>
                 </button>
             </div>
             <div className="acordion__body">
-                {body}
+                {props.body}
             </div>
         </div>
-    );
+    )
 }
 
-export { BasicAcordion };
+BasicAcordion.defaultProps = {
+    title: 'Title',
+    body: 'Body'
+}
+
+export { BasicAcordion }

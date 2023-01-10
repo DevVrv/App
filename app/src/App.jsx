@@ -1,28 +1,18 @@
-import Header from "./components/header/Header";
-import { BasicAcordion } from "./components/plugins/Acrodion";
-
-import { Search } from "./components/plugins/FormControl";
+import React from "react"
+import Header from "./components/Header"
+// import { BasicModal } from "./components/plugins/Modals"
+// import { AlertSmal } from "./components/plugins/Alerts"
+// import { useState } from "react"
+// import { toggler } from "./tools/handlerTools"
 
 function App() {
     return (
-        <div className="">
-            <Header />
-            <section className="section row py-5">
-                <div className="col-3">
-                </div>
-                <div className="col-3">
-                    <BasicAcordion id="1" body={<Search />}/>
-                    <BasicAcordion id="2" />
-                </div>
-                <div className="col-3">
-                    <BasicAcordion id="3" />
-                    <BasicAcordion id="4" />
-                </div>
-                <div className="col-3">
-                </div>
-            </section>
-        </div>
-    );
-}
+        <div className="wrapper">
 
-export default App;
+            {/* Header */}
+            <Header />
+            
+        </div>
+    )
+}
+export default App

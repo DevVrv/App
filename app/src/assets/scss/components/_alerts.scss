@@ -4,12 +4,11 @@
     min-height: 120px;
     background-color: $lite;
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
     border-radius: 0.25rem;
     transform: scale(0.98);
     transition: transform 0.3s ease;
-    animation: fade-scale-show 0.4s ease;
+    animation: fade-scale-show  0.5s ease;
+
     &__header {
         display: flex;
         justify-content: space-between;
@@ -17,6 +16,7 @@
         border-bottom: 1px solid $fade;
         padding: 0.5rem;
     }
+
     &__message {
         width: 100%;
         height: fit-content;
@@ -26,21 +26,25 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
+
     &[data-alert-type="info"] {
         & .alert-smal__header {
             color: $info;
         }
     }
+
     &[data-alert-type="success"] {
         & .alert-smal__header {
             color: $success;
-        } 
+        }
     }
+
     &[data-alert-type="warning"] {
         & .alert-smal__header {
             color: $warning;
         }
     }
+
     &[data-alert-type="danger"] {
         & .alert-smal__header {
             color: $danger;
@@ -49,5 +53,29 @@
 
     &:hover {
         transform: scale(1);
+    }
+
+    &[data-alert-x="start"] {
+        left: 1rem;
+    }
+
+    &[data-alert-x="center"] {
+        right: calc(50% - 150px);
+    }
+
+    &[data-alert-x="end"] {
+        right: 1rem;
+    }
+
+    &[data-alert-y="start"] {
+        top: 1rem;
+    }
+
+    &[data-alert-y="center"] {
+        bottom: 50%;
+    }
+
+    &[data-alert-y="end"] {
+        bottom: 1rem;
     }
 }

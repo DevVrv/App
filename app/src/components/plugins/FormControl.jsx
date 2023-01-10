@@ -10,7 +10,7 @@ function Field({id, name, desc, placeholder, type='text', disabled=false}) {
                 <input type={type} id={id} name={name} className="field" placeholder={placeholder}  disabled={disabled} autoComplete="true"/>
             </div>
         </div>
-    );
+    )
 }
 
 // basic area field
@@ -22,7 +22,7 @@ function Area({id, name, desc, placeholder}) {
                 <textarea id={id} name={name} placeholder={placeholder}></textarea>
             </div>
         </div>
-    );
+    )
 }
 
 // basic search field
@@ -36,21 +36,18 @@ function Search({id, name, desc, placeholder="Search", type='text', disabled=fal
             <div className="search-wrapper">
                 <input type="search" id={id} name={name} className="field search-field" placeholder={placeholder} disabled={disabled} autoComplete="true"/>
                 <button type="submit" className="btn btn-search">
-                    <i class="icofont-search"></i>
                 </button>
             </div>
         </div>
-    );
+    )
 }
 
 // basic checkbox
 function Checkbox({id, name, desc, disabled=false}) {
-    let icon;
+    let icon
     if (disabled) {
-        icon = <i className="icofont-lock"></i>
     }
     else {
-        icon = <i className="icofont-check"></i>
     }
     return (
         <div className="checkbox">
@@ -58,14 +55,13 @@ function Checkbox({id, name, desc, disabled=false}) {
             <label htmlFor={id}>{icon}</label>
             <span className="color-fade">{desc}</span>
         </div>
-    );
+    )
 }
 
 // basic readio
 function Radio({id, name, desc, value, disabled=false}) {
-    let icon;
+    let icon
     if (disabled) {
-        icon = <i className="icofont-lock"></i>
     }
     else {
         icon = ''
@@ -76,7 +72,7 @@ function Radio({id, name, desc, value, disabled=false}) {
             <label htmlFor={id}>{icon}</label>
             <span className="color-fade">{desc}</span>
         </div>
-    );
+    )
 }
 
 export {Field, Area, Search, Checkbox, Radio}

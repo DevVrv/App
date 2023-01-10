@@ -1,6 +1,7 @@
 .dropdown {
     position: relative;
     width: fit-content;
+
     &__title {
         padding: 0.25rem 0.5rem;
         color: $lite;
@@ -9,24 +10,30 @@
         background-color: $none;
         transition: color 0.4s ease;
         cursor: pointer;
+
         &:hover {
             color: $primary;
         }
+
         & i {
             display: block;
             transition: transform 0.4s ease;
         }
+
         &[data-expanded="false"] {
             & i {
                 transform: scaleY(1);
             }
         }
+
         &[data-expanded="true"] {
+            color: $primary;
             & i {
                 transform: scaleY(-1);
             }
         }
     }
+
     &__menu {
         width: 100%;
         height: fit-content;
@@ -39,12 +46,14 @@
         border-radius: 0.25rem;
         z-index: 1;
     }
+
     &[data-expanded="false"] {
         & .dropdown__menu {
             opacity: 0;
             transform: translateX(-2rem);
         }
     }
+
     &[data-expanded="true"] {
         & .dropdown__menu {
             opacity: 1;

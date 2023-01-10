@@ -2,7 +2,9 @@
     width: 100%;
     height: 60px;   
     padding: 0.75rem 0;
-    border-bottom: 1px solid $fade;
+    position: relative;
+    z-index: 10;
+    background-color: $lite;
     
     &__container {
         display: flex;
@@ -14,6 +16,11 @@
     &__logo {
         width: fit-content;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: $primary;
         & img {
             width: auto;
             height: 100%;
@@ -81,6 +88,99 @@
         margin: 0 0.25rem;
         &:hover {
             color: $primary;
+        }
+    }
+
+    & .burger {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        padding: 5rem;
+        display: flex;
+
+        &__preview {
+            font-size: 5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        &__preview-item {
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            padding: 5rem;
+            &:first-child {
+                z-index: 1;
+                color: $lite;
+                background: rgb(206,204,206);
+                background: linear-gradient(281deg, rgba(206,204,206,1) 0%, rgba(76,73,71,1) 100%);
+            }
+            &:last-child {
+                z-index: 2;
+                color: $lite;
+                background: rgb(34,32,34) !important;
+                background: linear-gradient(94deg, rgba(34,32,34,1) 0%, rgba(76,73,71,1) 100%) !important;
+            }
+        }
+        &__body {
+            position: fixed;
+            opacity: 1;
+            z-index: 3;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            height: 100%;
+            background-color: $primary;
+            overflow: hidden;
+        }
+
+        &[data-expanded="false"] {
+            transition: all 0.4s 0.8s ease;
+            pointer-events: none;
+            opacity: 0;
+
+            & .burger__preview-item:first-child {
+                transition: top 0.8s 0.8s ease-in-out;
+                top: 100%;
+            }
+            & .burger__preview-item:last-child {
+                top: 100%;
+                transition: top 0.8s 0.4s ease-in-out;
+            }
+            & .burger__body {
+                top: 100%;
+                transition: top 0.8s 0s ease;
+            }
+        }
+        &[data-expanded="true"] {
+            transition: all 0.4s ease;
+            pointer-events: all;
+            opacity: 1;
+
+            & .burger__preview-item:first-child {
+                transition: top 0.8s ease-in-out;
+                top: 0;
+            }
+            & .burger__preview-item:last-child {
+                top: 0;
+                transition: top 0.8s 0.4s ease-in-out;
+            }
+            & .burger__body {
+                top: 0;
+                transition: top 0.8s 0.8s ease;
+            }
         }
     }
 }
