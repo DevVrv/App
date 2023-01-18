@@ -1,0 +1,38 @@
+// @ Text animations
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-contract
+ * ----------------------------------------
+ */
+ @keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation tracking-out-expand
+ * ----------------------------------------
+ */
+ @keyframes tracking-out-expand {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+}

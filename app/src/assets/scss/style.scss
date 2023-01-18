@@ -1,31 +1,19 @@
-// Import Utils
-@import 'utils/_reset';
-@import 'utils/_mixin';
-@import 'utils/_animations';
+// @ Base
+@import 'base/_reset';
+@import 'base/_mixin';
+@import 'base/_colors';
+@import 'base/_animations';
+@import 'base/_fonts';
+@import 'base/_text';
 
-// Import Design
-@import 'design/_colors';
-@import 'design/_fonts';
-@import 'design/_text';
 
-// Base components
-@import 'components/_form-control';
-@import 'components/_buttons';
-@import 'components/_modal';
-@import 'components/_acordion';
-@import 'components/_dropdown';
-@import 'components/_alerts';
-@import 'components/_cards_invertad';
 
-// Project components
-@import 'components/_header';
-
+// @ Page Wrappers
 body {
     overflow-x: hidden !important;
     font-family: sans-serif;
     background-color: $dark;
 }
-
 .wrapper {
     min-width: 100vw;
     min-height: 100vh !important;
